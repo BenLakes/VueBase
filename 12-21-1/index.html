@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hello World</title>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+    {{title}}
+  </div>
+  <script>
+    var app = new Vue({
+      el: "#root",
+      data:{
+        title:"hello world"  
+      },
+    });
+   
+   setTimeout(() => {
+     app.$data.title = 'bye world'
+   }, 2000);
+
+  </script>
+</body>
+
+</html>
