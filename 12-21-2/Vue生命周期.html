@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue 生命周期</title>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="root">
+
+  </div>
+  <script>
+    // 生命周期函数 就是 Vue 实例在某一个时间点会自动执行的函数
+    var vm = new Vue({
+      el: "#root",
+      template: '<div>{{test}}</div>',
+      data: {
+        test: "hello world"
+      },
+      //创建实例前
+      beforeCreate: function () {
+        console.log('beforeCreate');
+      },
+      //  已创建实例
+      created: function () {
+        //  console.log(this.$el);
+        console.log('created');
+      },
+      //  挂载前  只显示挂载点
+      beforeMount: function () {
+        console.log(this.$el);
+        console.log("beforeMount");
+      },
+      // 挂载后  显示挂载内容
+      mounted: function () {
+        console.log(this.$el);
+        console.log("mounted");
+      },
+      // 卸载前
+      beforeDestroy:function(){
+        console.log("beforeDestroy");
+      },
+      // 卸载后
+      destroyed:function(){
+        console.log("destroyed");
+      },
+      // 更新前
+      beforeUpdate:function(){
+        console.log("beforeUpdate");
+      },
+      // 更新后
+      updated:function(){
+        console.log("updated");
+      }
+    })
+  </script>
+</body>
+
+</html>

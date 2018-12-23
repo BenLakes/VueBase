@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vue 中的列表渲染</title>
+     <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+     <div v-for="(item,key,index) of userInfo">
+       {{item}} --- {{key}} -- {{index}}
+     </div>
+   </div>
+   <script>
+     var vm = new Vue({
+       el:"#app",
+       data:{
+         userInfo:{
+           name:"Dell",
+           age:28,
+           gender:"male",
+           salary:"secret"
+         }
+       }
+     })
+   </script>
+</body>
+</html>
