@@ -1,0 +1,21 @@
+.tab-button{
+  padding: 6px 10px;
+  margin-right: 2px;
+  margin-bottom: 5px;
+  background: #f0f0f0;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.tab-button:hover{
+ background:red
+}
+.tab-button.active{
+ background: rebeccapurple
+}
+.tab{
+ border:1px solid #ccc;
+ padding: 10px;
+ font-size: 60px;
+}

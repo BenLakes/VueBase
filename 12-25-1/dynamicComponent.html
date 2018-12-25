@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>动态组件</title>
+  <script src="https://unpkg.com/vue"></script>
+  <!-- <style>
+     .tab-button{
+        padding: 6px 10px;
+        margin-right: 2px;
+        margin-bottom: 5px;
+        background: #f0f0f0;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+     }
+     .tab-button:hover{
+       background:red
+     }
+     .tab-button.active{
+       background: rebeccapurple
+     }
+     .tab{
+       border:1px solid #ccc;
+       padding: 10px;
+       font-size: 60px;
+     }
+  </style> -->
+  <!-- rel 属性指示被链接的文档是一个外部样式表，只有rel属性的stylesheet的值得到了所有浏览器的支持 -->
+  <link href="./style.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+  <div id="dynamic-component-demo" class="demo">
+    <button 
+      v-for="tab in tabs"
+      :key="tab"
+      :class="['tab-button',{active:currentTab === tab}]"
+      @click="currentTab = tab"
+      >
+      {{tab}}
+    </button>
+    <component :is="currentTabComponent"
+        class="tab"></component>
+  </div>
+
+  <script>
+    Vue.component('tab-home', {
+      template: '<div>Home component</div>'
+    })
+    Vue.component('tab-posts', {
+      template: '<div>Posts component</div>'
+    })
+    Vue.component('tab-archive', {
+      template: '<div>Archive component</div>'
+    })
+
+    new Vue({
+      el: "#dynamic-component-demo",
+      data: {
+        currentTab: 'Home',
+        tabs: ['Home', 'Posts', 'Archive']
+      },
+      computed: {
+        currentTabComponent: function () {
+          return 'tab-' + this.currentTab.toLowerCase()
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
